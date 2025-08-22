@@ -160,7 +160,7 @@ function App() {
   );
 
   const renderHomeScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4 pt-20">
       <div className="max-w-md mx-auto">
         <header className="text-center mb-8 pt-16">
           <h1 className="text-4xl font-bold text-pink-800 mb-2">Stree for Stree</h1>
@@ -229,7 +229,7 @@ function App() {
   );
 
   const renderFakeCallScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4 pt-20">
       <div className="max-w-md mx-auto">
         <header className="flex items-center mb-6">
           <button
@@ -263,7 +263,7 @@ function App() {
   );
 
   const renderSelfDefenseScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4 pt-20">
       <div className="max-w-md mx-auto">
         <header className="flex items-center mb-6">
           <button
@@ -298,7 +298,7 @@ function App() {
   );
 
   const renderStreeSpeaksScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4 pt-20">
       <div className="max-w-md mx-auto">
         <header className="text-center mb-6">
           <h1 className="text-3xl font-bold text-pink-800 mb-2">StreeSpeaks</h1>
