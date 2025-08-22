@@ -120,14 +120,18 @@ function App() {
   };
 
   const startFakeCall = (callData: FakeCallData) => {
-    setActiveFakeCall(callData);
-    // Simulate incoming call interface
-    setTimeout(() => {
-      alert(`Fake call started: ${callData.title}. Press OK to end the call.`);
-      setActiveFakeCall(null);
-      setCurrentScreen('home');
-    }, 1000);
-  };
+  setActiveFakeCall(callData);
+
+  // play the audio if available
+  if (callData.audio) {
+    const audio = new Audio(callData.audio);
+    audio.loop = true; // keeps playing until user ends the call
+    audio.play();
+    // attach the audio instance to the callData so we can stop it later
+    (callData as any).audioInstance = audio;
+  }
+};
+
 
   const renderNavBar = () => (
     <div className="fixed top-4 right-4 z-50 flex space-x-2">
@@ -223,39 +227,32 @@ function App() {
     </div>
   );
 
-  const renderFakeCallScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4">
-      <div className="max-w-md mx-auto">
-        <header className="flex items-center mb-6">
-          <button
-            onClick={() => setCurrentScreen('home')}
-            className="p-2 rounded-lg bg-pink-200 hover:bg-pink-300 transition-colors mr-4"
-          >
-            <ArrowLeft size={24} className="text-pink-700" />
-          </button>
-          <h1 className="text-2xl font-bold text-pink-800">Fake Call Options</h1>
-        </header>
-
-        <div className="space-y-4">
-          {fakeCallOptions.map((option) => (
-            <div
-              key={option.id}
-              className="bg-white rounded-xl p-6 shadow-md border border-pink-200"
-            >
-              <h3 className="text-xl font-semibold text-pink-800 mb-2">{option.title}</h3>
-              <p className="text-pink-600 mb-4">{option.description}</p>
-              <button
-                onClick={() => startFakeCall(option)}
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 rounded-lg transition-all duration-200 hover:scale-105"
-              >
-                Start Fake Call
-              </button>
-            </div>
-          ))}
-        </div>
+const renderFakeCallActive = () => (
+  <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="text-center text-white">
+      <div className="w-32 h-32 bg-green-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+        <Phone size={48} />
       </div>
+      <h2 className="text-2xl font-bold mb-2">Incoming Call...</h2>
+      <p className="text-lg">{activeFakeCall?.title}</p>
+      <button
+        onClick={() => {
+          // stop audio when ending call
+          if ((activeFakeCall as any)?.audioInstance) {
+            (activeFakeCall as any).audioInstance.pause();
+            (activeFakeCall as any).audioInstance.currentTime = 0;
+          }
+          setActiveFakeCall(null);
+          setCurrentScreen('home');
+        }}
+        className="mt-8 bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full"
+      >
+        End Call
+      </button>
     </div>
-  );
+  </div>
+);
+
 
   const renderSelfDefenseScreen = () => (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-4">
