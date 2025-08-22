@@ -20,13 +20,13 @@ const fakeCallOptions: FakeCallData[] = [
     id: 'lane',
     title: 'Be Safe in a Dark Lane',
     description: 'Fake call to deter potential threats in isolated areas',
-    audio: '/lane.mp3'
+    audio: '/street_Ai.mp3'
   },
   {
     id: 'public',
     title: 'Escape a Public Place',
     description: 'Fake emergency call to help you leave uncomfortable situations',
-    audio: '/public.mp3'
+    audio: '/party.mp3'
   }
 ];
 
