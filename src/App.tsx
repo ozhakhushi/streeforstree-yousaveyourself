@@ -35,19 +35,19 @@ const selfDefenseMoves = [
     id: 'knee',
     name: 'Knee to Groin',
     description: 'Drive your knee upward forcefully into the attacker\'s groin area',
-    image: 'https://images.pexels.com/photos/4761671/pexels-photo-4761671.jpeg?auto=compress&cs=tinysrgb&w=300'
+    image: '/WhatsApp Image 2025-08-22 at 9.10.48 AM.jpeg'
   },
   {
     id: 'palm',
     name: 'Palm Strike to Nose',
     description: 'Use the heel of your palm to strike upward at the attacker\'s nose',
-    image: 'https://images.pexels.com/photos/4761662/pexels-photo-4761662.jpeg?auto=compress&cs=tinysrgb&w=300'
+    image: '/WhatsApp Image 2025-08-22 at 9.10.25 AM.jpeg'
   },
   {
     id: 'stomp',
     name: 'Foot Stomp',
     description: 'Stomp down hard on the attacker\'s foot, especially effective with heels',
-    image: 'https://images.pexels.com/photos/4761659/pexels-photo-4761659.jpeg?auto=compress&cs=tinysrgb&w=300'
+    image: '/143019dd-6691-4bd2-a41c-06e0e4fdf0ad (1).png'
   }
 ];
 
